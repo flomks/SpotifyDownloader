@@ -6,6 +6,7 @@ from mutagen.easyid3 import EasyID3
 from moviepy.editor import VideoFileClip
 import os
 import re
+import json
 
 
 OUTPUT_PATH = r'C:\Users\brozm\OneDrive\Desktop\Musik'
@@ -61,9 +62,14 @@ def youtube_download_mp3(yt_url):
         print(e)
 
 
-def test():
-    youtube_download_mp3("https://www.youtube.com/watch?v=rJWdfDPZ9Ck")
+def start():
+    """start the program"""
+
+    with open('url.json', 'r') as file:
+        data = json.load(file)
+
+    [youtube_download_mp3(track) for track in data["links"]]
 
 
 if __name__ == "__main__":
-    test()
+    start()
