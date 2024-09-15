@@ -65,7 +65,7 @@ def youtube_download_mp3(yt_url):
 def start():
     """start the program"""
 
-    with open('url.json', 'r') as file:
+    with open('music.json', 'r') as file:
         data = json.load(file)
 
     [youtube_download_mp3(track) for track in data["links"]]
