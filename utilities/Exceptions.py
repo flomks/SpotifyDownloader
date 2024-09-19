@@ -11,3 +11,8 @@ class YouTubeError(Exception):
     """
     Base for all YouTube related exceptions
     """
+
+class UrlError(Exception):
+    """
+    Base for all url related exceptions
+    """
