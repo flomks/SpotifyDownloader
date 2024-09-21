@@ -42,7 +42,7 @@ class Song:
 
         return cls(
             name=raw_data["name"],
-            artists="artists",
+            artists=raw_data["artists"],
             artist=raw_data["artists"][0]["name"],
             disc_number=raw_data["disc_number"],
             duration=raw_data["duration_ms"]/1000,
