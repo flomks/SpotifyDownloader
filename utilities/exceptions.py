@@ -16,3 +16,8 @@ class UrlError(Exception):
     """
     Base for all url related exceptions
     """
+
+class IdError(Exception):
+    """
+    Base for all id related exceptions
+    """
