@@ -54,7 +54,6 @@ class Song:
         )
 
 
-
 if __name__ == '__main__':
     #print(Song.from_url("https://open.spotify.com/intl-de/track/0IEiV3wV201V43KrPGBz5c?si=95c3d97da37e49d2"))
     from provider.ytmusic import YouTubeMusic
