@@ -1,6 +1,7 @@
 """
 YTMusic module for downloading and searching song
 """
+
 import yt_dlp
 from yt_dlp import YoutubeDL
 from ytmusicapi import YTMusic
@@ -9,9 +10,6 @@ from Models.song import Song
 
 
 class YouTubeMusic:
-
-
-
     def __init__(
             self,
             output_format: str = 'mp3',
