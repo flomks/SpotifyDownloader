@@ -1,10 +1,11 @@
 """
 Playlist module
 """
+
 from dataclasses import dataclass
 from typing import List
 
-from Models.song import Song
+from models.song import Song
 from spotify.spotify import SpotifyClient
 from utilities.exceptions import UrlError
 
@@ -33,7 +34,6 @@ class Playlist:
 
         tracks = [Song.from_url(track['track']['external_urls']['spotify'])
                   for track in playlist_raw_data["tracks"]["items"]]
-        print(tracks)
 
         return cls(
             name=playlist_raw_data["name"],
