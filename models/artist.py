@@ -4,9 +4,8 @@ Artist module
 from dataclasses import dataclass
 from typing import List
 
-from setuptools.extern import names
-
-
+from models.album import Album
+from models.song import Song
 from spotify.spotify import SpotifyClient
 from utilities.exceptions import UrlError
 
@@ -20,16 +19,14 @@ class Artist:
     genres: List[str]
     follower: int
     popularity: int
-    albums: List['Album']
-    songs: List['Song']
+    albums: List[Album]
+    songs: List[Song]
     spotify_url: str
     uri: str
     href: str
 
     @classmethod
     def from_url(cls, url) -> 'Artist':
-        from album import Album
-        from song import Song
 
         client = SpotifyClient()
         raw_data_artist = client.auth.artist(url)

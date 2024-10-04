@@ -28,6 +28,7 @@ class Song:
     track_number: int
     type: str
 
+    spotify = SpotifyClient()
 
     @classmethod
     def from_url(cls, url: str) -> 'Song':
@@ -35,10 +36,7 @@ class Song:
 
         if "open.spotify.com" not in url or "track" not in url:
             raise UrlError(f"Invalid URL: {url}")
-
-        spotify = SpotifyClient()
-
-        raw_data = spotify.auth.track(url)
+        raw_data = cls.spotify.auth.track(url)
 
         return cls(
             name=raw_data["name"],
@@ -52,7 +50,6 @@ class Song:
             track_number=raw_data["track_number"],
             type=raw_data["type"]
         )
-
 
 if __name__ == '__main__':
     #print(Song.from_url("https://open.spotify.com/intl-de/track/0IEiV3wV201V43KrPGBz5c?si=95c3d97da37e49d2"))

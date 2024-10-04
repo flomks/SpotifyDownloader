@@ -28,9 +28,11 @@ class YtMusicResult(ResultBase):
         OFFICIAL_SOURCE_MUSIC = "OFFICIAL_SOURCE_MUSIC"
 
     category: str
-    views: str
+    streams: str
     duration: int
     video_type: VideoType
+    artists: list[dict[str, str]]
+
 
 
 if __name__=="__main__":

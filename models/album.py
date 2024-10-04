@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import List
 
 
-from Models.song import Song as Song
+from models.song import Song as Song
 from spotify.spotify import SpotifyClient
 from utilities.exceptions import IdError
 
@@ -16,7 +16,8 @@ class Album:
 
     name: str
     id: int
-    artists: list['Artist']
+    artist: str
+    artists: list[str]
     songs: list[Song]
     label: str
     popularity: int
@@ -27,7 +28,6 @@ class Album:
 
     @classmethod
     def from_url(cls, url: str) -> 'Album':
-        from Models.artist import Artist
         spotify = SpotifyClient()
 
         raw_data = spotify.auth.album(url)
@@ -38,9 +38,9 @@ class Album:
         return cls(
             name=raw_data['name'],
             id=raw_data['id'],
-            #artists=[Artist.from_url(artist['external_urls']['spotify']) for artist in raw_data['artists']],
-            artists=[],
-            songs="",
+            artist=raw_data['artists'][0]['name'],
+            artists=[artist['external_urls']['spotify'] for artist in raw_data['artists']],
+            songs=[Song.from_url(song['external_urls']['spotify']) for song in raw_data['tracks']['items']],
             label=raw_data['label'],
             popularity=raw_data['popularity'],
             genres=raw_data['genres'],
@@ -54,6 +54,7 @@ class Album:
 
 
 if __name__ == '__main__':
-    from Models.artist import Artist
-    print(Album.from_url("https://open.spotify.com/album/6ystVeCCbC5k4ZGOBZFTWl"))
+    from models.artist import Artist
+    result = Album.from_url("https://open.spotify.com/album/6ystVeCCbC5k4ZGOBZFTWl")
+    print(result)
 
