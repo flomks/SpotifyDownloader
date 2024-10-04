@@ -1,0 +1,402 @@
+[
+  {
+    'artists': [
+      {
+        'id': 'UCuA6k6g0Xzf6-JlgMXSSA0g',
+        'name': 'Ufo361'
+      },
+      {
+        'id': 'UC9eXaAHHI70CBVvFV9nOu_w',
+        'name': 'Monty Datta'
+      },
+      {
+        'id': 'UCNFujiR0o3wYZGXo16iByAw',
+        'name': 'Hinshi'
+      }
+    ],
+    'category': 'Top result',
+    'duration': '3:43',
+    'duration_seconds': 223,
+    'resultType': 'video',
+    'thumbnails': [
+      {
+        'height': 225,
+        'url': 'https://i.ytimg.com/vi/UANaa9TIJUU/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nv5AFGri-diZzamwUI3FWGNe77LA',
+        'width': 400
+      }
+    ],
+    'title': 'Ufo361 - UR IN MY HEAD',
+    'videoId': 'UANaa9TIJUU',
+    'videoType': 'MUSIC_VIDEO_TYPE_OMV',
+    'views': '1.5M'
+  },
+  {
+    'album': {
+      'id': 'MPREb_xXqqatW2oT4',
+      'name': 'DENK ZU VIEL NACH'
+    },
+    'artists': [
+      {
+        'id': 'UCuA6k6g0Xzf6-JlgMXSSA0g',
+        'name': 'Ufo361'
+      }
+    ],
+    'category': 'More from YouTube',
+    'duration': '2:25',
+    'duration_seconds': 145,
+    'feedbackTokens': {
+      'add': None,
+      'remove': None
+    },
+    'inLibrary': False,
+    'isExplicit': True,
+    'resultType': 'song',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/oZTR4sEutSuqRaD3TdNq0mo9sdk9u3HOBxRojXqNHZrQlf_kgHljLQGm9Uh4u8RAYwD-a2T3o97OoW0i=w60-h60-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/oZTR4sEutSuqRaD3TdNq0mo9sdk9u3HOBxRojXqNHZrQlf_kgHljLQGm9Uh4u8RAYwD-a2T3o97OoW0i=w120-h120-l90-rj',
+        'width': 120
+      }
+    ],
+    'title': 'DENK ZU VIEL NACH',
+    'videoId': 'OH0p55N2z6E',
+    'videoType': 'MUSIC_VIDEO_TYPE_ATV',
+    'year': None
+  },
+  {
+    'album': {
+      'id': 'MPREb_ONPlP3ZB1dC',
+      'name': 'UR IN MY HEAD'
+    },
+    'artists': [
+      {
+        'id': 'UCuA6k6g0Xzf6-JlgMXSSA0g',
+        'name': 'Ufo361'
+      }
+    ],
+    'category': 'Songs',
+    'duration': '3:43',
+    'duration_seconds': 223,
+    'feedbackTokens': {
+      'add': None,
+      'remove': None
+    },
+    'inLibrary': False,
+    'isExplicit': False,
+    'resultType': 'song',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/ujFoxiIedPluMYim5jouY-svC1ykUaMMGl4MkRGGp2l4lkSVXwAdJgCnMuP2NoFZ1reCRWx99IS-4OSP=w60-h60-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/ujFoxiIedPluMYim5jouY-svC1ykUaMMGl4MkRGGp2l4lkSVXwAdJgCnMuP2NoFZ1reCRWx99IS-4OSP=w120-h120-l90-rj',
+        'width': 120
+      }
+    ],
+    'title': 'UR IN MY HEAD (feat. Monty Datta & Hinshi)',
+    'videoId': 'abcN3D89LTQ',
+    'videoType': 'MUSIC_VIDEO_TYPE_ATV',
+    'year': None
+  },
+  {
+    'album': {
+      'id': 'MPREb_U6LwotiWwrT',
+      'name': 'UR IN MY HEAD'
+    },
+    'artists': [
+      {
+        'id': 'UCuA6k6g0Xzf6-JlgMXSSA0g',
+        'name': 'Ufo361'
+      },
+      {
+        'id': 'UC9eXaAHHI70CBVvFV9nOu_w',
+        'name': 'Monty Datta'
+      },
+      {
+        'id': 'UCNFujiR0o3wYZGXo16iByAw',
+        'name': 'Hinshi'
+      }
+    ],
+    'category': 'Songs',
+    'duration': '1:00',
+    'duration_seconds': 60,
+    'feedbackTokens': {
+      'add': None,
+      'remove': None
+    },
+    'inLibrary': False,
+    'isExplicit': False,
+    'resultType': 'song',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/Oo9WUKRzKD4iwxSeUphSPnZsIP59IyOmoo-MfpdJN4S-_CxKC1pl8EgzMryL2EFDN3lABgBORfUFDtvR=w60-h60-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/Oo9WUKRzKD4iwxSeUphSPnZsIP59IyOmoo-MfpdJN4S-_CxKC1pl8EgzMryL2EFDN3lABgBORfUFDtvR=w120-h120-l90-rj',
+        'width': 120
+      }
+    ],
+    'title': 'UR IN MY HEAD',
+    'videoId': '6t7qIXzJkR8',
+    'videoType': 'MUSIC_VIDEO_TYPE_ATV',
+    'year': None
+  },
+  {
+    'album': {
+      'id': 'MPREb_CQbqeplx21B',
+      'name': 'Sunroof'
+    },
+    'artists': [
+      {
+        'id': 'UCt4OyIr6hYZSgE9hHFoYZWw',
+        'name': 'Nicky Youre'
+      },
+      {
+        'id': 'UCx4FxdjpI5GAxAFmQqGAubA',
+        'name': 'dazy'
+      }
+    ],
+    'category': 'Songs',
+    'duration': '2:44',
+    'duration_seconds': 164,
+    'feedbackTokens': {
+      'add': None,
+      'remove': None
+    },
+    'inLibrary': False,
+    'isExplicit': False,
+    'resultType': 'song',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/ycWkUrLxkMX_xYBpoKA82FbkLdrDBC-sKP_e9-b84Qk-JNFDdiq2L777JcegI5M5z5C2SZNozPnCosUJ=w60-h60-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/ycWkUrLxkMX_xYBpoKA82FbkLdrDBC-sKP_e9-b84Qk-JNFDdiq2L777JcegI5M5z5C2SZNozPnCosUJ=w120-h120-l90-rj',
+        'width': 120
+      }
+    ],
+    'title': 'Sunroof',
+    'videoId': 'eZCWyFNV_ZM',
+    'videoType': 'MUSIC_VIDEO_TYPE_ATV',
+    'year': None
+  },
+  {
+    'artists': [
+      {
+        'id': 'UCiRm6Sd-pK1RgbSw_cZZ5ng',
+        'name': 'Lloyd'
+      }
+    ],
+    'category': 'Videos',
+    'duration': '2:32',
+    'duration_seconds': 152,
+    'resultType': 'video',
+    'thumbnails': [
+      {
+        'height': 225,
+        'url': 'https://i.ytimg.com/vi/nHp9E9xCRv0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mnHJFrCILZezeRI0zvTjkyHCI_Vg',
+        'width': 400
+      }
+    ],
+    'title': 'Ufo361 feat. Monty Datta & Hinshi - UR IN MY HEAD (Instrumental)',
+    'videoId': 'nHp9E9xCRv0',
+    'videoType': 'MUSIC_VIDEO_TYPE_UGC',
+    'views': '9.3K',
+    'year': None
+  },
+  {
+    'artists': [
+      {
+        'id': 'UC30r2cy2Yw3ya2za2JVoQCg',
+        'name': 'Housejunkee'
+      }
+    ],
+    'category': 'Videos',
+    'duration': '2:50',
+    'duration_seconds': 170,
+    'resultType': 'video',
+    'thumbnails': [
+      {
+        'height': 225,
+        'url': 'https://i.ytimg.com/vi/iOt9JSItqP0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mjng-q-gf6Sday7YNk2M_rzD7dJA',
+        'width': 400
+      }
+    ],
+    'title': 'Ufo361, Monty Datta, Hinshi - UR IN MY HEAD (Housejunkee x Pepino Remix)',
+    'videoId': 'iOt9JSItqP0',
+    'videoType': 'MUSIC_VIDEO_TYPE_OMV',
+    'views': '2.6K',
+    'year': None
+  },
+  {
+    'artists': [
+      {
+        'id': 'UCC87U8KZRXA56Xbw8hg-Rog',
+        'name': 'Music magic 🪄 '
+      }
+    ],
+    'category': 'Videos',
+    'duration': '3:41',
+    'duration_seconds': 221,
+    'resultType': 'video',
+    'thumbnails': [
+      {
+        'height': 225,
+        'url': 'https://i.ytimg.com/vi/-S2BiPvgvWc/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3knHHmXn3hIiCxS21yogVFtY5vO0g',
+        'width': 400
+      }
+    ],
+    'title': 'Ufo361 - Ur In My Head (Lyrics) ft. Monty Datta & Hinshi',
+    'videoId': '-S2BiPvgvWc',
+    'videoType': 'MUSIC_VIDEO_TYPE_UGC',
+    'views': '89',
+    'year': None
+  },
+  {
+    'author': 'Jannick Leirich',
+    'browseId': 'VLPLK3JSSw5GhRpZ0J3kDZYB72kt2WYGPd9_',
+    'category': 'Community playlists',
+    'itemCount': 25,
+    'resultType': 'playlist',
+    'thumbnails': [
+      {
+        'height': 192,
+        'url': 'https://yt3.googleusercontent.com/5DZQphfUJQczJETebqNnlEoM3EZmgsQ4PvC5G06e0XX-tNXCc-145hQzzJIfeG8nxzpZMH7svwq7=s192',
+        'width': 192
+      },
+      {
+        'height': 576,
+        'url': 'https://yt3.googleusercontent.com/5DZQphfUJQczJETebqNnlEoM3EZmgsQ4PvC5G06e0XX-tNXCc-145hQzzJIfeG8nxzpZMH7svwq7=s576',
+        'width': 576
+      },
+      {
+        'height': 1200,
+        'url': 'https://yt3.googleusercontent.com/5DZQphfUJQczJETebqNnlEoM3EZmgsQ4PvC5G06e0XX-tNXCc-145hQzzJIfeG8nxzpZMH7svwq7=s1200',
+        'width': 1200
+      }
+    ],
+    'title': 'Beats'
+  },
+  {
+    'author': 'MyHeart',
+    'browseId': 'VLPLyc41-g5S_WSP8r9S-jbLZy_fM5I4FGmz',
+    'category': 'Community playlists',
+    'itemCount': 362,
+    'resultType': 'playlist',
+    'thumbnails': [
+      {
+        'height': 192,
+        'url': 'https://yt3.googleusercontent.com/y06Yw4WbQF795XpVqtw1-_Zwk3i-d-zxyjd4ttGAhbWUpk5V7aw4yJ-vTQz62dUJqdTNsxDWmg=s192',
+        'width': 192
+      },
+      {
+        'height': 576,
+        'url': 'https://yt3.googleusercontent.com/y06Yw4WbQF795XpVqtw1-_Zwk3i-d-zxyjd4ttGAhbWUpk5V7aw4yJ-vTQz62dUJqdTNsxDWmg=s576',
+        'width': 576
+      },
+      {
+        'height': 1200,
+        'url': 'https://yt3.googleusercontent.com/y06Yw4WbQF795XpVqtw1-_Zwk3i-d-zxyjd4ttGAhbWUpk5V7aw4yJ-vTQz62dUJqdTNsxDWmg=s1200',
+        'width': 1200
+      }
+    ],
+    'title': 'Schwindlers-Playlist'
+  },
+  {
+    'author': 'DoM 4.2.0.',
+    'browseId': 'VLPLZYwljc69tmvjrd7KnlBlSAUH9Hp8x847',
+    'category': 'Community playlists',
+    'itemCount': 546,
+    'resultType': 'playlist',
+    'thumbnails': [
+      {
+        'height': 192,
+        'url': 'https://yt3.googleusercontent.com/DGQDMb0LXchHHT7_H2ovtVPDYa9NfNnf61oNY8RZ0o16QOnfZiWRBDIzqmvRTj5Zt6AiRzL9Nw=s192',
+        'width': 192
+      },
+      {
+        'height': 576,
+        'url': 'https://yt3.googleusercontent.com/DGQDMb0LXchHHT7_H2ovtVPDYa9NfNnf61oNY8RZ0o16QOnfZiWRBDIzqmvRTj5Zt6AiRzL9Nw=s576',
+        'width': 576
+      },
+      {
+        'height': 1200,
+        'url': 'https://yt3.googleusercontent.com/DGQDMb0LXchHHT7_H2ovtVPDYa9NfNnf61oNY8RZ0o16QOnfZiWRBDIzqmvRTj5Zt6AiRzL9Nw=s1200',
+        'width': 1200
+      }
+    ],
+    'title': 'Tekk#23#_€'
+  },
+  {
+    'artist': 'Ufo361',
+    'browseId': 'UCuA6k6g0Xzf6-JlgMXSSA0g',
+    'category': 'Artists',
+    'radioId': 'RDEMREheVZs_4VMo9DiIyluqhw',
+    'resultType': 'artist',
+    'shuffleId': 'RDAOREheVZs_4VMo9DiIyluqhw',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/l2ZI1ZxBXYoEvxMt_dWaK8KFZy_j3O3_pqQPi5fhlyh2xyCitDQc5DyI1_JdYMmzx7D1EH4Fnlwaq1io=w60-h60-p-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/l2ZI1ZxBXYoEvxMt_dWaK8KFZy_j3O3_pqQPi5fhlyh2xyCitDQc5DyI1_JdYMmzx7D1EH4Fnlwaq1io=w120-h120-p-l90-rj',
+        'width': 120
+      }
+    ]
+  },
+  {
+    'artist': 'Monty Datta',
+    'browseId': 'UC9eXaAHHI70CBVvFV9nOu_w',
+    'category': 'Artists',
+    'radioId': 'RDEM4Jafuz30h_hn41Tx3Bwzwg',
+    'resultType': 'artist',
+    'shuffleId': 'RDAO4Jafuz30h_hn41Tx3Bwzwg',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://lh3.googleusercontent.com/a-/ALV-UjWMEGhpkPK5UTNrUsNlUTSqCZMLLZn3CDDNURAgj-PxfW4ZvmxL=w60-h60-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://lh3.googleusercontent.com/a-/ALV-UjWMEGhpkPK5UTNrUsNlUTSqCZMLLZn3CDDNURAgj-PxfW4ZvmxL=w120-h120-l90-rj',
+        'width': 120
+      }
+    ]
+  },
+  {
+    'artist': 'Lloyd',
+    'browseId': 'UCiRm6Sd-pK1RgbSw_cZZ5ng',
+    'category': 'Profiles',
+    'resultType': 'artist',
+    'thumbnails': [
+      {
+        'height': 60,
+        'url': 'https://yt3.googleusercontent.com/LZqFO_T1nzO7jloT_9puBVLs_yZRaVK1d143NOag47bbwAEhX971f2eqnT_HEBpdLvxjLL2lyA=w60-c-h60-k-c0x00ffffff-no-l90-rj',
+        'width': 60
+      },
+      {
+        'height': 120,
+        'url': 'https://yt3.googleusercontent.com/LZqFO_T1nzO7jloT_9puBVLs_yZRaVK1d143NOag47bbwAEhX971f2eqnT_HEBpdLvxjLL2lyA=w120-c-h120-k-c0x00ffffff-no-l90-rj',
+        'width': 120
+      }
+    ]
+  }
+]
