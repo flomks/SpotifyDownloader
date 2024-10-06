@@ -32,7 +32,7 @@ class Song:
 
     @classmethod
     def from_url(cls, url: str) -> 'Song':
-        """get song from url"""
+        """get song from url """
 
         if "open.spotify.com" not in url or "track" not in url:
             raise UrlError(f"Invalid URL: {url}")
