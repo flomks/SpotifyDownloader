@@ -17,6 +17,7 @@ class Song:
     Song class
     """
 
+
     name: str
     artist: str
     artists: List[str]
@@ -51,17 +52,9 @@ class Song:
             type=raw_data["type"]
         )
 
+
 if __name__ == '__main__':
-    #print(Song.from_url("https://open.spotify.com/intl-de/track/0IEiV3wV201V43KrPGBz5c?si=95c3d97da37e49d2"))
-    from provider.ytmusic import YouTubeMusic
-    yt_music = YouTubeMusic()
     song = Song.from_url("https://open.spotify.com/intl-de/track/6PCq1iOy3u0dqq0z7h1uQA?si=1bf31a5ac6634bb8")
-    #print(song)
-
-    search = yt_music.search(song)
-    url = f"music.youtube.com/watch?v={search[0]['videoId']}"
-    print(url)
-
-    yt_music.downlaod(url)
+    print(song)
 
 
