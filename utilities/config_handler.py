@@ -20,7 +20,7 @@ class Config:
 
     def _initialize(self):
         # load .env file
-        load_dotenv(r"D:\YouTubeDownloader\config.env")
+        load_dotenv(r"..\config.env")
 
         self.client_id = os.getenv("SPOTIPY_CLIENT_ID")
         self.client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
