@@ -4,6 +4,7 @@ from models.playlist import Playlist
 
 
 from provider.ytmusic import YouTubeMusic
+from spotify.spotify import SpotifyClient
 from utilities.config_handler import Config
 from models.playlist import Playlist
 
@@ -36,6 +37,9 @@ class DownloadManager:
 
     def get_playlist(self, url: str):
         self.playlist = Playlist.from_url(url)
+
+    def get_spotify_playlist(self, url: str):
+        self.spotify_playlist = SpotifyClient.get_target_playlist()
 
 
 def test():
