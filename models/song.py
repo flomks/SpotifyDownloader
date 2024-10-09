@@ -37,7 +37,7 @@ class Song:
 
         if "open.spotify.com" not in url or "track" not in url:
             raise UrlError(f"Invalid URL: {url}")
-        raw_data = cls.spotify.auth.track(url)
+        raw_data = cls.spotify.client.track(url)
 
         return cls(
             name=raw_data["name"],

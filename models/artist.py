@@ -29,12 +29,12 @@ class Artist:
     def from_url(cls, url) -> 'Artist':
 
         client = SpotifyClient()
-        raw_data_artist = client.auth.artist(url)
+        raw_data_artist = client.client.artist(url)
 
         if raw_data_artist is None:
             raise UrlError(r"Invalid artist URL")
 
-        album_raw_data = client.auth.artist_albums(url, limit=None, album_type="album")
+        album_raw_data = client.client.artist_albums(url, limit=None, album_type="album")
         if album_raw_data is None:
             raise UrlError(r"Invalid artist URL")
 

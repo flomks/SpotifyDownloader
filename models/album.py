@@ -30,7 +30,7 @@ class Album:
     def from_url(cls, url: str) -> 'Album':
         spotify = SpotifyClient()
 
-        raw_data = spotify.auth.album(url)
+        raw_data = spotify.client.album(url)
 
         if raw_data is None:
             raise IdError(f"Invalid ID: {url}")

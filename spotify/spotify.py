@@ -40,15 +40,15 @@ class SpotifyClient:
     def __init__(self):
         self.CLIENT_ID,   self.CLIENT_SECRET,   self.REDIRECT_URI = ch.Config().get_spotify_api_config()
         self.scope = " ".join(permissions)
-        self.auth = self.authenticate()
+        self.client = self.authenticate()
         self.target_playlist = ch.Config().get_spotify_target_playlist()
 
     def authenticate(self) -> Spotify:
-        self.auth = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=self.CLIENT_ID,
+        self.client = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=self.CLIENT_ID,
                                                client_secret=self.CLIENT_SECRET,
                                                redirect_uri=self.REDIRECT_URI,
                                                scope=self.scope))
-        return self.auth
+        return self.client
 
     def get_scope(self):
         return self.scope
@@ -57,7 +57,7 @@ class SpotifyClient:
         return self.target_playlist
 
     def extract_song_infos(self):
-        self.auth.playlist_items(self.target_playlist)
+        self.client.playlist_items(self.target_playlist)
 
 
 if __name__ == '__main__':
@@ -70,21 +70,21 @@ if __name__ == '__main__':
     #print(client.CLIENT_SECRET)
     #print(client.REDIRECT_URI)
     #auth = client.authenticate()
-    user = client.auth.current_user()
-    track_id: str = client.auth.playlist(client.target_playlist)['tracks']['items'][0]['track']['id']
+    user = client.client.current_user()
+    track_id: str = client.client.playlist(client.target_playlist)['tracks']['items'][0]['track']['id']
 
     #print(user)
 
 
-    track = client.auth.track(track_id)
+    track = client.client.track(track_id)
     #print(track)
     #print("Device:", auth.devices())
     #device_id = auth.devices()['devices'][0]['id']
     #print(device_id)
     #auth.add_to_queue(r"https://open.spotify.com/intl-de/track/13hJUmR1UpCUzyHjotiImK?si=644397dfaa484687", device_id)
     #print("Queue:", auth.queue())
-    print("User-playlists:", client.auth.user_playlists(user['id']))
-    print("playlist:", client.auth.playlist("https://open.spotify.com/playlist/7dEZMFRFZE5iFUP6Fe7NM4?si=7775ae82d61e4a87"))
+    print("User-playlists:", client.client.user_playlists(user['id']))
+    print("playlist:", client.client.playlist("https://open.spotify.com/playlist/7dEZMFRFZE5iFUP6Fe7NM4?si=7775ae82d61e4a87"))
     #print(client.auth.album("6ystVeCCbC5k4ZGOBZFTWl"))
     #a = client.auth.album("https://open.spotify.com/album/6ystVeCCbC5k4ZGOBZFTWl")
     #print(a)
