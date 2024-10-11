@@ -21,3 +21,10 @@ class IdError(Exception):
     """
     Base for all id related exceptions
     """
+
+class ConfigError(Exception):
+    """
+    Base for all config related exceptions
+    """
+
+
