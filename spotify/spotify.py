@@ -53,6 +53,10 @@ class SpotifyClient:
     def get_scope(self):
         return self.scope
 
+
+    def get_client(self):
+        return self.client
+
     def get_target_playlist(self):
         return self.target_playlist
 
