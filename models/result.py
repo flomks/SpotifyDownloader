@@ -42,13 +42,11 @@ class YtMusicResult(ResultBase):
         videos = "Videos"
 
 
-
     category: str
     resultType: ResultType
     streams: str
     video_type: VideoType
     artists: list[dict[str, str]]
-
 
 
 if __name__=="__main__":
