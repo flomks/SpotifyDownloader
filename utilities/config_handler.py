@@ -34,7 +34,11 @@ class Config:
         self.spotify_playlist_url = os.getenv("SPOTIFY_PLAYLIST_URL")
         self.output_path = os.getenv("OUTPUT_PATH")
 
-        if None in [self.client_id, self.client_secret, self.redirect_url, self.spotify_playlist_url, self.output_path]:
+        if {None, ""} & {self.client_id,
+                         self.client_secret,
+                         self.redirect_url,
+                         self.spotify_playlist_url,
+                         self.output_path}:
             raise ConfigError("Error with the config structure."
                               "Please check your environment variables:\n"
                               "- SPOTIPY_CLIENT_ID\n"
