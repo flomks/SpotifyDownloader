@@ -3,9 +3,7 @@ Song module
 """
 
 from dataclasses import dataclass
-from datetime import datetime
 from typing import List
-
 
 from utilities.exceptions import (UrlError)
 from spotify.spotify import SpotifyClient
