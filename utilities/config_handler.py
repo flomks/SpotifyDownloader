@@ -1,16 +1,19 @@
 """
 Module for the config handle
 """
-from dataclasses import dataclass
 
 from dotenv import load_dotenv
 import os
+
+from utilities.exceptions import ConfigError
 
 
 # singleton class
 # only one instance for this class
 class Config:
     _instance = None
+
+    ENV_PATH = r"..\config.env"
 
     def __new__(cls):
         if cls._instance is None:
@@ -19,14 +22,26 @@ class Config:
         return cls._instance
 
     def _initialize(self):
+        if not os.path.isfile(self.ENV_PATH):
+            raise FileNotFoundError(f"Config file not found: {self.ENV_PATH}")
+
         # load .env file
-        load_dotenv(r"..\config.env")
+        load_dotenv(self.ENV_PATH)
 
         self.client_id = os.getenv("SPOTIPY_CLIENT_ID")
         self.client_secret = os.getenv("SPOTIPY_CLIENT_SECRET")
         self.redirect_url = os.getenv("SPOTIPY_REDIRECT_URI")
         self.spotify_playlist_url = os.getenv("SPOTIFY_PLAYLIST_URL")
         self.output_path = os.getenv("OUTPUT_PATH")
+
+        if None in [self.client_id, self.client_secret, self.redirect_url, self.spotify_playlist_url, self.output_path]:
+            raise ConfigError("Error with the config structure."
+                              "Please check your environment variables:\n"
+                              "- SPOTIPY_CLIENT_ID\n"
+                              "- SPOTIPY_CLIENT_SECRET\n"
+                              "- SPOTIPY_REDIRECT_URI\n"
+                              "- SPOTIFY_PLAYLIST_URL\n"
+                              "- OUTPUT_PATH")
 
     def get_spotify_api_config(self):
         return self.client_id, self.client_secret, self.redirect_url
@@ -41,4 +56,5 @@ class Config:
 if __name__ == "__main__":
     c = Config()
     print(c.get_spotify_api_config())
+    print(c.get_spotify_target_playlist())
     print(c.get_output_path())
