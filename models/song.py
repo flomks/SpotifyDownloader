@@ -15,7 +15,6 @@ class Song:
     Song class
     """
 
-
     name: str
     artist: str
     artists: List[str]
@@ -27,15 +26,13 @@ class Song:
     track_number: int
     type: str
 
-    spotify = SpotifyClient()
-
     @classmethod
     def from_url(cls, url: str) -> 'Song':
         """get song from url """
 
         if "open.spotify.com" not in url or "track" not in url:
             raise UrlError(f"Invalid URL: {url}")
-        raw_data = cls.spotify.client.track(url)
+        raw_data = SpotifyClient().get_track(url)
 
         return cls(
             name=raw_data["name"],

@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import List
 
+from spotipy import Spotify
 
 from models.song import Song as Song
 from spotify.spotify import SpotifyClient
@@ -28,9 +29,7 @@ class Album:
 
     @classmethod
     def from_url(cls, url: str) -> 'Album':
-        spotify = SpotifyClient()
-
-        raw_data = spotify.client.album(url)
+        raw_data = SpotifyClient().get_album(url)
 
         if raw_data is None:
             raise IdError(f"Invalid ID: {url}")
@@ -54,7 +53,6 @@ class Album:
 
 
 if __name__ == '__main__':
-    from models.artist import Artist
     result = Album.from_url("https://open.spotify.com/album/6ystVeCCbC5k4ZGOBZFTWl")
     print(result)
 

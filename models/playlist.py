@@ -28,9 +28,7 @@ class Playlist:
         if "open.spotify.com" not in url or "playlist" not in url:
             raise UrlError(f"Invalid URL: {url}")
 
-        spotify = SpotifyClient()
-
-        playlist_raw_data = spotify.client.playlist(url)
+        playlist_raw_data = SpotifyClient().get_playlist(url)
 
         tracks = [Song.from_url(track['track']['external_urls']['spotify'])
                   for track in playlist_raw_data["tracks"]["items"]]

@@ -13,7 +13,6 @@ from utilities.exceptions import UrlError
 @dataclass
 class Artist:
 
-
     name: str
     id: str
     genres: List[str]
@@ -28,13 +27,12 @@ class Artist:
     @classmethod
     def from_url(cls, url) -> 'Artist':
 
-        client = SpotifyClient()
-        raw_data_artist = client.client.artist(url)
+        raw_data_artist = SpotifyClient().get_artist(url)
 
         if raw_data_artist is None:
             raise UrlError(r"Invalid artist URL")
 
-        album_raw_data = client.client.artist_albums(url, limit=None, album_type="album")
+        album_raw_data = SpotifyClient().get_artist_albums(url)
         if album_raw_data is None:
             raise UrlError(r"Invalid artist URL")
 
