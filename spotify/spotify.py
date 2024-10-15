@@ -50,52 +50,30 @@ class SpotifyClient:
                                                scope=self.scope))
         return self.client
 
-    def get_scope(self):
+    def get_scope(self) -> str:
+        """
+        Getter for the scope
+        :return: scope-string
+        """
         return self.scope
 
-
-    def get_client(self):
+    def get_client(self) -> Spotify:
         return self.client
 
-    def get_target_playlist(self):
-        return self.target_playlist
+    def get_track(self, url) -> dict:
+        return self.client.track(url)
 
-    def extract_song_infos(self):
-        self.client.playlist_items(self.target_playlist)
+    def get_artist(self, url) -> dict:
+        return self.client.artist(url)
 
+    def get_artist_albums(self, url) -> dict:
+        return self.client.artist_albums(url, limit=None, album_type="album")
+
+    def get_album(self, url) -> dict:
+        return self.client.album(url)
+
+    def get_playlist(self, url) -> dict:
+        return self.client.playlist(url)
 
 if __name__ == '__main__':
     client = SpotifyClient()
-
-    #print(client.get_target_playlist())
-
-    #print(client.get_scope())
-    #print(client.CLIENT_ID)
-    #print(client.CLIENT_SECRET)
-    #print(client.REDIRECT_URI)
-    #auth = client.authenticate()
-    user = client.client.current_user()
-    track_id: str = client.client.playlist(client.target_playlist)['tracks']['items'][0]['track']['id']
-
-    #print(user)
-
-
-    track = client.client.track(track_id)
-    #print(track)
-    #print("Device:", auth.devices())
-    #device_id = auth.devices()['devices'][0]['id']
-    #print(device_id)
-    #auth.add_to_queue(r"https://open.spotify.com/intl-de/track/13hJUmR1UpCUzyHjotiImK?si=644397dfaa484687", device_id)
-    #print("Queue:", auth.queue())
-    print("User-playlists:", client.client.user_playlists(user['id']))
-    print("playlist:", client.client.playlist("https://open.spotify.com/playlist/7dEZMFRFZE5iFUP6Fe7NM4?si=7775ae82d61e4a87"))
-    #print(client.auth.album("6ystVeCCbC5k4ZGOBZFTWl"))
-    #a = client.auth.album("https://open.spotify.com/album/6ystVeCCbC5k4ZGOBZFTWl")
-    #print(a)
-    #artist = client.auth.artist("https://open.spotify.com/artist/2LzPNXHyUwvHnvYqCilOgY")
-    #artist_albums = client.auth.artist_albums("2LzPNXHyUwvHnvYqCilOgY", album_type="album", limit=50)
-    #print(artist_albums)
-    print()
-    #print(f"Der eingeloggte Benutzer ist: {user['display_name']}")
-    #print(user)
-
