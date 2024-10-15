@@ -1,7 +1,9 @@
 from yt_dlp import YoutubeDL
+from ytmusicapi import YTMusic
 
 from models.playlist import Playlist
-
+from models.song import Song
+from provider.ytmusic import YouTubeMusic, YtMusicResult
 
 from provider.ytmusic import YouTubeMusic
 from spotify.spotify import SpotifyClient
@@ -16,7 +18,7 @@ class DownloadManager:
             output_format : str = 'mp3',
     ) -> None:
         self.output_format = output_format
-        self.playlist = None
+        self.target_playlist = None
         self.client = YoutubeDL()
         self.output_path = output_path
 
@@ -24,6 +26,8 @@ class DownloadManager:
             config = Config()
             self.output_path = config.get_output_path()
 
+        if self.target_playlist is None:
+            self.target_playlist = Config().get_spotify_target_playlist()
 
         if self.output_format == 'mp3':
             self.yt_dlp_format = "bestaudio"
@@ -36,11 +40,17 @@ class DownloadManager:
             "retries": 5,
         }
 
-    def get_playlist(self, url: str):
-        self.playlist = Playlist.from_url(url)
+    def get_target_playlist(self) -> str:
+        return self.target_playlist
 
-    def get_spotify_playlist(self, url: str):
-        self.spotify_playlist = SpotifyClient.get_target_playlist()
+    def get_playlist(self) -> Playlist:
+        return Playlist.from_url(self.target_playlist)
+
+    def download(self, song: Song) -> str:
+        # Download -> TopResult
+        search_result: [YtMusicResult] = YouTubeMusic().search(song)
+        top_result = [top for top in search_result if top.categorie == YtMusicResult.Category.top_result]
+        pass
 
 
 def test():
