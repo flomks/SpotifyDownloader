@@ -28,7 +28,6 @@ class YtMusicResult(ResultBase):
         profile = "profile"
         station = "station"
 
-
     class VideoType(Enum):
         MUSIC_VIDEO_TYPE_OMV = "MUSIC_VIDEO_TYPE_OMV"
         MUSIC_VIDEO_TYPE_UGC = "MUSIC_VIDEO_TYPE_UGC"
@@ -42,7 +41,7 @@ class YtMusicResult(ResultBase):
         videos = "Videos"
 
 
-    category: str
+    category: Category
     resultType: ResultType
     streams: str
     video_type: VideoType
@@ -50,6 +49,5 @@ class YtMusicResult(ResultBase):
 
 
 if __name__=="__main__":
-
     v = YtMusicResult.ResultType.video
     print(v)
