@@ -25,7 +25,6 @@ class YouTubeMusic:
         self.client = YTMusic()
         self.URL_BASE = 'https://www.youtube.com/watch?v='
 
-
     def search(self, song: Song, query: str = None) -> [YtMusicResult]:
 
         if song is None:
