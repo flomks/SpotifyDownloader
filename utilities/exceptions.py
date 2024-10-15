@@ -27,4 +27,9 @@ class ConfigError(Exception):
     Base for all config related exceptions
     """
 
+class VersionNotFoundError(Exception):
+    """
+    Base for all version related exceptions
+    """
+
 
