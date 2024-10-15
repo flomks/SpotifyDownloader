@@ -41,7 +41,6 @@ class SpotifyClient:
         self.CLIENT_ID,   self.CLIENT_SECRET,   self.REDIRECT_URI = ch.Config().get_spotify_api_config()
         self.scope = " ".join(permissions)
         self.client = self.authenticate()
-        self.target_playlist = ch.Config().get_spotify_target_playlist()
 
     def authenticate(self) -> Spotify:
         self.client = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=self.CLIENT_ID,
