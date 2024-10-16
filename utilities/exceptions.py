@@ -32,4 +32,8 @@ class VersionNotFoundError(Exception):
     Base for all version related exceptions
     """
 
+class DownloadError(Exception):
+    """
+    Base for all download related exceptions
+    """
 
