@@ -9,8 +9,11 @@ from version import __version__ as CURRENT_VERSION
 import requests
 import re
 
-GIT_VERSION_URL = r'https://github.com/flomks/YouTubeDownloader/blob/master/version.py'
+GIT_RAW_LINK = r'https://raw.githubusercontent.com/flomks/YouTubeDownloader/c8b32d57783d950d2c424493ae95a8c7f28623b4'
+GIT_VERSION_URL = GIT_RAW_LINK + r'/version.py'
 GIT_PROJECT = r'https://github.com/flomks/YouTubeDownloader'
+GIT_PROJECT_DOWNLOAD_PATH = GIT_PROJECT + r'/archive/refs/heads/master.zip'
+
 PROJECT_PATH: str | None = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -98,5 +101,7 @@ def test():
 
 if __name__ == '__main__':
     #print(get_latest_version())
-    print(check_for_update())
-    print(PROJECT_PATH)
+    #print(GIT_VERSION_URL)
+    #print(check_for_update())
+    #print(PROJECT_PATH)
+    print(test())
