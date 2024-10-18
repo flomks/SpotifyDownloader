@@ -98,7 +98,6 @@ def test():
     print(download_install(test_path))
 
 
-
 if __name__ == '__main__':
     #print(get_latest_version())
     #print(GIT_VERSION_URL)
