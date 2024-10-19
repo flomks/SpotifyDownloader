@@ -10,7 +10,7 @@ from version import __version__ as CURRENT_VERSION
 import requests
 import re
 
-GIT_RAW_LINK = r'https://raw.githubusercontent.com/flomks/YouTubeDownloader/c8b32d57783d950d2c424493ae95a8c7f28623b4'
+GIT_RAW_LINK = r'https://raw.githubusercontent.com/flomks/YouTubeDownloader/refs/heads/master'
 GIT_VERSION_URL = GIT_RAW_LINK + r'/version.py'
 GIT_PROJECT = r'https://github.com/flomks/YouTubeDownloader'
 GIT_PROJECT_DOWNLOAD_PATH = GIT_PROJECT + r'/archive/refs/heads/master.zip'
@@ -50,7 +50,6 @@ def check_for_update() -> bool:
 
     if latest_version is not None:
         if latest_version != CURRENT_VERSION:
-            print("new version found")
             return True
     return False
 
@@ -82,6 +81,17 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         with zipfile.ZipFile(zip_path, "r") as zip_ref:
             zip_ref.extractall(installation_path)
 
+        for old_file in os.listdir(installation_path):
+            if old_file.endswith(".env"):
+                continue
+            if os.path.isdir(old_file):
+                #shutil.rmtree(old_file)
+                print("removed:", old_file)
+            else:
+                #os.remove(old_file)
+                print("removed:", old_file)
+
+
         extracted_dir = os.path.join(installation_path, 'YouTubeDownloader-master')
         for item in os.listdir(extracted_dir):
             s = os.path.join(extracted_dir, item)
@@ -92,6 +102,7 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
                 shutil.copy2(s, d)
 
         os.remove(zip_path)
+        shutil.rmtree(extracted_dir)
 
     except Exception as e:
         # did not raise an exception but return False that the update failed
@@ -99,15 +110,7 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         return False
     return True
 
-
-def test():
-    test_path = PROJECT_PATH + "test"
-    print(download_install(test_path))
-
-
 if __name__ == '__main__':
-    #print(get_latest_version())
-    #print(GIT_VERSION_URL)
-    #print(check_for_update())
-    #print(PROJECT_PATH)
-    print(test())
+    if check_for_update():
+        print("Update available!")
+        download_install()
