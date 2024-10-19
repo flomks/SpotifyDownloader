@@ -86,12 +86,13 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             os.path.join("utilities", "exceptions.py"),
             "YouTubeDownloader-master",
             "update.zip",
-            ".env",
-            ".git",
+            "config.env",
             ".idea"
         ]
 
-        delete_folder(installation_path, protected_files)
+        protected_folders = [".git"]
+
+        delete_folder(installation_path, protected_files, protected_folders)
         """
         # remove all old files except the required update files
         for old_file in os.listdir(installation_path):
