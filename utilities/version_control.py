@@ -81,15 +81,19 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         with zipfile.ZipFile(zip_path, "r") as zip_ref:
             zip_ref.extractall(installation_path)
 
+        # remove all old files except the required update files
         for old_file in os.listdir(installation_path):
-            if old_file.endswith(".env"):
+            if (old_file.endswith((".env", ".git", ".idea"))
+                    or old_file == "utilities"
+                    or old_file == "YouTubeDownloader-master"
+                    or old_file == "update.zip") :
                 continue
-            if os.path.isdir(old_file):
-                #shutil.rmtree(old_file)
-                print("removed:", old_file)
+            if os.path.isdir(os.path.join(installation_path, old_file)):
+                shutil.rmtree(os.path.join(installation_path, old_file))
+                print("Dir:", old_file)
             else:
-                #os.remove(old_file)
-                print("removed:", old_file)
+                os.remove(os.path.join(installation_path, old_file))
+                print("File:", old_file)
 
 
         extracted_dir = os.path.join(installation_path, 'YouTubeDownloader-master')
