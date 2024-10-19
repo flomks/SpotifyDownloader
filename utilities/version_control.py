@@ -81,18 +81,34 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         with zipfile.ZipFile(zip_path, "r") as zip_ref:
             zip_ref.extractall(installation_path)
 
+        protected_files = [
+            "version_control.py",
+            os.path.join("utilities", "exceptions.py"),
+            "YouTubeDownloader-master",
+            "update.zip",
+            ".env",
+            ".git",
+            ".idea"
+        ]
+
         # remove all old files except the required update files
         for old_file in os.listdir(installation_path):
-            if (old_file.endswith((".env", ".git", ".idea"))
+            old_file_path = os.path.join(installation_path, old_file)
+
+            if any(old_file.startswith(os.path.basename(f)) for f in protected_files):
+                continue
+
+            """if (old_file.endswith((".env", ".git", ".idea"))
                     or old_file == "utilities"
                     or old_file == "YouTubeDownloader-master"
                     or old_file == "update.zip") :
-                continue
-            if os.path.isdir(os.path.join(installation_path, old_file)):
-                shutil.rmtree(os.path.join(installation_path, old_file))
+                continue"""
+
+            if os.path.isdir(old_file_path):
+                shutil.rmtree(old_file_path)
                 print("Dir:", old_file)
             else:
-                os.remove(os.path.join(installation_path, old_file))
+                os.remove(old_file_path)
                 print("File:", old_file)
 
 
