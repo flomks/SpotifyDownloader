@@ -2,6 +2,7 @@
 Version control modul to check version and download the latest
 """
 import os
+import shutil
 import zipfile
 
 from utilities.exceptions import VersionNotFoundError, DownloadError
@@ -64,7 +65,7 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
 
     try:
         # download the latest update from git repository
-        response = requests.get(GIT_PROJECT, stream=True)
+        response = requests.get(GIT_PROJECT_DOWNLOAD_PATH, stream=True)
         response.raise_for_status()
 
         if response is None:
@@ -81,20 +82,26 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         with zipfile.ZipFile(zip_path, "r") as zip_ref:
             zip_ref.extractall(installation_path)
 
-        # replace the latest files with the old
-        # remove old program files
+        extracted_dir = os.path.join(installation_path, 'YouTubeDownloader-master')
+        for item in os.listdir(extracted_dir):
+            s = os.path.join(extracted_dir, item)
+            d = os.path.join(PROJECT_PATH, item)
+            if os.path.isdir(s):
+                shutil.copytree(s, d, dirs_exist_ok=True)
+            else:
+                shutil.copy2(s, d)
 
-        #...
         os.remove(zip_path)
 
-    except:
+    except Exception as e:
         # did not raise an exception but return False that the update failed
+        print(e)
         return False
     return True
 
 
 def test():
-    test_path = r'D:\YouTubeDownloader\test'
+    test_path = PROJECT_PATH + "test"
     print(download_install(test_path))
 
 
