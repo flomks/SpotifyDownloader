@@ -136,14 +136,15 @@ def delete_folder(path, protected_files: list[str]=None, protected_folders:  lis
         if os.path.isfile(item_path):
             if item_path not in protected_files:
                 os.remove(item_path)
-                print(f"-: {item_path}")
+            continue
         elif os.path.isdir(item_path):
             if item_path not in protected_folders:
                 delete_folder(item_path, protected_files, protected_folders)
 
                 if not os.listdir(item_path):
                     os.rmdir(item_path)
-                    print(f"-: {item_path}")
+            continue
+        print(f"-: {item_path}")
 
 if __name__ == '__main__':
     if check_for_update():
