@@ -77,10 +77,6 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             for chunk in response.iter_content(chunk_size=8192):
                 f.write(chunk)
 
-        # extract the data
-        with zipfile.ZipFile(zip_path, "r") as zip_ref:
-            zip_ref.extractall(installation_path)
-
         protected_files = [
             os.path.join("utilities", "version_control.py"),
             os.path.join("utilities", "exceptions.py"),
@@ -92,28 +88,14 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
 
         protected_folders = [".git"]
 
+        protected_files = [(os.path.join(PROJECT_PATH, file)) for file in protected_files]
+        protected_folders = [(os.path.join(PROJECT_PATH, folder)) for folder in protected_folders]
+
         delete_folder(installation_path, protected_files, protected_folders)
-        """
-        # remove all old files except the required update files
-        for old_file in os.listdir(installation_path):
-            old_file_path = os.path.join(installation_path, old_file)
 
-            if any(old_file.startswith(os.path.basename(f)) for f in protected_files):
-                continue
-
-            if (old_file.endswith((".env", ".git", ".idea"))
-                    or old_file == "utilities"
-                    or old_file == "YouTubeDownloader-master"
-                    or old_file == "update.zip") :
-                continue
-
-            if os.path.isdir(old_file_path):
-                shutil.rmtree(old_file_path)
-                print("Dir:", old_file)
-            else:
-                os.remove(old_file_path)
-                print("File:", old_file)"""
-
+        # extract the data
+        with zipfile.ZipFile(zip_path, "r") as zip_ref:
+            zip_ref.extractall(installation_path)
 
         extracted_dir = os.path.join(installation_path, 'YouTubeDownloader-master')
         for item in os.listdir(extracted_dir):
@@ -123,6 +105,7 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
                 shutil.copytree(s, d, dirs_exist_ok=True)
             else:
                 shutil.copy2(s, d)
+            print("+", item)
 
         os.remove(zip_path)
         shutil.rmtree(extracted_dir)
@@ -151,26 +134,16 @@ def delete_folder(path, protected_files: list[str]=None, protected_folders:  lis
         item_path = os.path.join(path, item)
 
         if os.path.isfile(item_path):
-            if item not in protected_files:
+            if item_path not in protected_files:
                 os.remove(item_path)
-                print(f"Datei gelöscht: {item_path}")
-            else:
-                print(f"Datei geschützt: {item_path}")
-
+                print(f"-: {item_path}")
         elif os.path.isdir(item_path):
-            if item not in protected_folders:
-                # Rekursiver Aufruf, um den Unterordner zu bereinigen
+            if item_path not in protected_folders:
                 delete_folder(item_path, protected_files, protected_folders)
 
-                # Versuche, das Verzeichnis zu löschen, falls es nach der Bereinigung leer ist
-                if not os.listdir(item_path):  # Ordner ist leer
-                    os.rmdir(item_path)  # Leeres Verzeichnis löschen
-                    print(f"Ordner gelöscht: {item_path}")
-                else:
-                    print(f"Ordner ist geschützt oder nicht leer: {item_path}")
-            else:
-                print(f"Ordner geschützt: {item_path}")
-
+                if not os.listdir(item_path):
+                    os.rmdir(item_path)
+                    print(f"-: {item_path}")
 
 if __name__ == '__main__':
     if check_for_update():
