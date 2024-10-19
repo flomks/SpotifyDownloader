@@ -82,7 +82,7 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             zip_ref.extractall(installation_path)
 
         protected_files = [
-            "version_control.py",
+            os.path.join("utilities", "version_control.py"),
             os.path.join("utilities", "exceptions.py"),
             "YouTubeDownloader-master",
             "update.zip",
@@ -91,6 +91,8 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             ".idea"
         ]
 
+        delete_folder(installation_path, protected_files)
+        """
         # remove all old files except the required update files
         for old_file in os.listdir(installation_path):
             old_file_path = os.path.join(installation_path, old_file)
@@ -98,18 +100,18 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             if any(old_file.startswith(os.path.basename(f)) for f in protected_files):
                 continue
 
-            """if (old_file.endswith((".env", ".git", ".idea"))
+            if (old_file.endswith((".env", ".git", ".idea"))
                     or old_file == "utilities"
                     or old_file == "YouTubeDownloader-master"
                     or old_file == "update.zip") :
-                continue"""
+                continue
 
             if os.path.isdir(old_file_path):
                 shutil.rmtree(old_file_path)
                 print("Dir:", old_file)
             else:
                 os.remove(old_file_path)
-                print("File:", old_file)
+                print("File:", old_file)"""
 
 
         extracted_dir = os.path.join(installation_path, 'YouTubeDownloader-master')
@@ -129,6 +131,45 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
         print(e)
         return False
     return True
+
+def delete_folder(path, protected_files: list[str]=None, protected_folders:  list[str]=None) -> bool:
+    """
+    rec function to delete all files and folder expect protected files and protected folder
+    :param path: path to the directory
+    :param protected_files: list of protected files
+    :param protected_folders: list of protected folders
+    :return: true or false
+    """
+
+    if protected_files is None:
+        protected_files = []
+    if protected_folders is None:
+        protected_folders = []
+
+    for item in os.listdir(path):
+        item_path = os.path.join(path, item)
+
+        if os.path.isfile(item_path):
+            if item not in protected_files:
+                os.remove(item_path)
+                print(f"Datei gelöscht: {item_path}")
+            else:
+                print(f"Datei geschützt: {item_path}")
+
+        elif os.path.isdir(item_path):
+            if item not in protected_folders:
+                # Rekursiver Aufruf, um den Unterordner zu bereinigen
+                delete_folder(item_path, protected_files, protected_folders)
+
+                # Versuche, das Verzeichnis zu löschen, falls es nach der Bereinigung leer ist
+                if not os.listdir(item_path):  # Ordner ist leer
+                    os.rmdir(item_path)  # Leeres Verzeichnis löschen
+                    print(f"Ordner gelöscht: {item_path}")
+                else:
+                    print(f"Ordner ist geschützt oder nicht leer: {item_path}")
+            else:
+                print(f"Ordner geschützt: {item_path}")
+
 
 if __name__ == '__main__':
     if check_for_update():
