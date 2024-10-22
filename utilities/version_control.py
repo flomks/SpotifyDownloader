@@ -1,6 +1,8 @@
 """
 Version control modul to check version and download the latest
 """
+
+
 import os
 import shutil
 import zipfile
@@ -16,6 +18,17 @@ GIT_PROJECT = r'https://github.com/flomks/YouTubeDownloader'
 GIT_PROJECT_DOWNLOAD_PATH = GIT_PROJECT + r'/archive/refs/heads/master.zip'
 
 PROJECT_PATH: str | None = os.path.dirname(os.path.dirname(__file__))
+
+PROTECTED_FILES = [
+    os.path.join("utilities", "version_control.py"),
+    os.path.join("utilities", "exceptions.py"),
+    "YouTubeDownloader-master",
+    "update.zip",
+    "config.env",
+    ".idea"
+]
+
+PROTECTED_FOLDERS = [".git"]
 
 
 def get_latest_version() -> str:
@@ -77,21 +90,10 @@ def download_install(installation_path=PROJECT_PATH) -> bool:
             for chunk in response.iter_content(chunk_size=8192):
                 f.write(chunk)
 
-        protected_files = [
-            os.path.join("utilities", "version_control.py"),
-            os.path.join("utilities", "exceptions.py"),
-            "YouTubeDownloader-master",
-            "update.zip",
-            "config.env",
-            ".idea"
-        ]
-
-        protected_folders = [".git"]
-
-        protected_files = [(os.path.join(PROJECT_PATH, file)) for file in protected_files]
-        protected_folders = [(os.path.join(PROJECT_PATH, folder)) for folder in protected_folders]
-
-        delete_folder(installation_path, protected_files, protected_folders)
+        # add the installation path to the file name with list-comp
+        delete_folder(installation_path,
+                      [(os.path.join(PROJECT_PATH, file)) for file in PROTECTED_FILES],
+                      [(os.path.join(PROJECT_PATH, folder)) for folder in PROTECTED_FOLDERS])
 
         # extract the data
         with zipfile.ZipFile(zip_path, "r") as zip_ref:
@@ -145,6 +147,7 @@ def delete_folder(path, protected_files: list[str]=None, protected_folders:  lis
                     os.rmdir(item_path)
             continue
         print(f"-: {item_path}")
+
 
 if __name__ == '__main__':
     if check_for_update():
