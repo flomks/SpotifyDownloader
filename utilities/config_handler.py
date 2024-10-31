@@ -13,7 +13,7 @@ from utilities.exceptions import ConfigError
 class Config:
     _instance = None
 
-    ENV_PATH = r"..\config.env"
+    ENV_PATH = r"../config.env"
 
     def __new__(cls):
         if cls._instance is None:
@@ -33,19 +33,22 @@ class Config:
         self.redirect_url = os.getenv("SPOTIPY_REDIRECT_URI")
         self.spotify_playlist_url = os.getenv("SPOTIFY_PLAYLIST_URL")
         self.output_path = os.getenv("OUTPUT_PATH")
+        self.cache_path = os.getenv("CACHE_PATH")
 
         if {None, ""} & {self.client_id,
                          self.client_secret,
                          self.redirect_url,
                          self.spotify_playlist_url,
-                         self.output_path}:
+                         self.output_path,
+                         self.cache_path}:
             raise ConfigError("Error with the config structure."
                               "Please check your environment variables:\n"
                               "- SPOTIPY_CLIENT_ID\n"
                               "- SPOTIPY_CLIENT_SECRET\n"
                               "- SPOTIPY_REDIRECT_URI\n"
                               "- SPOTIFY_PLAYLIST_URL\n"
-                              "- OUTPUT_PATH")
+                              "- OUTPUT_PATH\n"
+                              "- CACHE_FOLDER (opt.)\n")
 
     def get_spotify_api_config(self):
         return self.client_id, self.client_secret, self.redirect_url
@@ -55,6 +58,9 @@ class Config:
 
     def get_output_path(self):
         return self.output_path
+
+    def get_cache_folder(self):
+        return self.cache_path
 
 
 if __name__ == "__main__":
