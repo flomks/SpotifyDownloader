@@ -9,6 +9,17 @@ from models.song import Song
 from spotify.spotify import SpotifyClient
 from utilities.exceptions import UrlError
 
+def check_playlist_url(url) -> dict:
+    if "open.spotify.com" not in url or "playlist" not in url:
+        raise UrlError(f"Invalid URL: {url}")
+
+    try:
+        data_exists = SpotifyClient().get_playlist(url)
+    except Exception as e:
+        raise UrlError(f"Invalid URL: {url}")
+
+    return data_exists
+
 
 @dataclass
 class Playlist:
@@ -25,10 +36,7 @@ class Playlist:
     @classmethod
     def from_url(cls, url):
 
-        if "open.spotify.com" not in url or "playlist" not in url:
-            raise UrlError(f"Invalid URL: {url}")
-
-        playlist_raw_data = SpotifyClient().get_playlist(url)
+        playlist_raw_data = check_playlist_url(url)
 
         tracks = [Song.from_url(track['track']['external_urls']['spotify'])
                   for track in playlist_raw_data["tracks"]["items"]]
