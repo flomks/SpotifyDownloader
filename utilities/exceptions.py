@@ -37,3 +37,8 @@ class DownloadError(Exception):
     Base for all download related exceptions
     """
 
+class PathError(Exception):
+    """
+    Base for all path related exceptions
+    """
+
