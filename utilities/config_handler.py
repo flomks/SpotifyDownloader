@@ -1,6 +1,7 @@
 """
 Module for the config handle
 """
+from pathlib import Path
 
 from dotenv import load_dotenv
 import os
@@ -13,7 +14,8 @@ from utilities.exceptions import ConfigError
 class Config:
     _instance = None
 
-    ENV_PATH = r"../config.env"
+    config_handler_dir = Path(__file__).resolve().parent.parent
+    ENV_PATH = config_handler_dir / "config.env"
 
     def __new__(cls):
         if cls._instance is None:
