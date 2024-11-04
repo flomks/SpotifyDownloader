@@ -40,12 +40,15 @@ class YtMusicResult(ResultBase):
         songs = "Songs"
         videos = "Videos"
 
-
     category: Category
     resultType: ResultType
     streams: str
     video_type: VideoType
     artists: list[dict[str, str]]
+
+
+def get_key_by_value(value):
+    return {item.value: item.name for item in YtMusicResult.Category}.get(value)
 
 
 if __name__=="__main__":
