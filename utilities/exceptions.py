@@ -42,3 +42,7 @@ class PathError(Exception):
     Base for all path related exceptions
     """
 
+class DataError(Exception):
+    """
+    Base for all data related exceptions
+    """
