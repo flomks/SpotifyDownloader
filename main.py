@@ -10,7 +10,7 @@ from download.DownloadManager import DownloadManager
 from utilities.exceptions import UrlError, PathError
 from version import __version__
 from utilities.config_handler import Config
-from models.playlist import check_playlist_url
+from models.playlist import check_playlist_url, Playlist
 
 creator_info = "flo.mks"
 
@@ -33,12 +33,13 @@ def welcome_print():
 
 
 def main():
-    welcome_print()
     config = Config()
 
     CONFIG_PLAYLIST = config.get_spotify_target_playlist()
     CONFIG_OUTPUT_PATH = config.get_output_path()
 
+
+    welcome_print()
     while True:
         try:
             target_playlist = CONFIG_PLAYLIST
@@ -51,7 +52,11 @@ def main():
                 target_playlist = playlist_input
 
             if check_playlist_url(target_playlist):
-                print(f"[Selected] {target_playlist}\n")
+                selected_playlist = Playlist.from_url(target_playlist)
+                print(f"\t[Selected] {target_playlist}")
+                print(f"\t\t[Name] {selected_playlist.name}")
+                print(f"\t\t[Creator] {selected_playlist.get_user_name()}")
+                print(f"\t\t[Songs] {len(selected_playlist.songs)}\n")
                 break
         except UrlError as e:
             print("\n[ERROR] Playlist not found! Enter a new URL or use the default!")
@@ -76,10 +81,25 @@ def main():
             print("\n[ERROR] Invalid Path! Enter a new Path or use the default! [Drive not found]")
             continue
 
-    manager = DownloadManager(target_playlist, output_path)
-    manager.download_playlist()
+    while True:
+        print(f"[Start] Setup complete! Do you want to download the playlist? [Y/n]")
+        yes = ["y", "yes"]
+        no = ["n", "no"]
 
+        start_input = input("\t>\t")
+        if start_input.lower() not in yes + no:
+            # wrong input
+            continue
 
+        if start_input.lower() in no:
+            print("[Exit] Program is closing...")
+            break
+
+        print("Starting...")
+
+        manager = DownloadManager(target_playlist, output_path)
+        manager.download_playlist()
+        break
 
 
 def is_valid_path(path):
