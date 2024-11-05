@@ -53,6 +53,12 @@ class Playlist:
         )
 
 
+    def get_username(self):
+        return SpotifyClient().client.user(self.owner_id)["display_name"]
+
+
+
+
 if __name__ == "__main__":
     a = Playlist.from_url(r"https://open.spotify.com/playlist/7dEZMFRFZE5iFUP6Fe7NM4?si=7775ae82d61e4a87")
     print(a)
