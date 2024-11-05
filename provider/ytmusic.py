@@ -4,7 +4,7 @@ YTMusic module for downloading and searching song
 
 from ytmusicapi import YTMusic
 
-from models.result import YtMusicResult
+from models.result import YtMusicResult, get_key_by_value
 from models.song import Song
 
 
@@ -38,13 +38,14 @@ class YouTubeMusic:
 
         # return a list of YTMusicResult objects
         return(
-            [YtMusicResult(
+            [
+                YtMusicResult(
                 source=self.__class__.__name__,
                 id=search_result["videoId"],
                 title=search_result["title"],
                 url=self.URL_BASE + search_result["videoId"],
                 duration=search_result["duration_seconds"],
-                category=search_result["category"],
+                category=YtMusicResult.Category[get_key_by_value(search_result["category"])],
                 resultType=YtMusicResult.ResultType[search_result["resultType"]],
 
                 # the keyword "view" only exists in response of resultType "video"
@@ -69,3 +70,4 @@ if __name__ == "__main__":
     result = yt.search(song)
     print([result.id for result in result])
     print(result)
+
