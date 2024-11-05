@@ -55,7 +55,7 @@ def main():
                 selected_playlist = Playlist.from_url(target_playlist)
                 print(f"\t[Selected] {target_playlist}")
                 print(f"\t\t[Name] {selected_playlist.name}")
-                print(f"\t\t[Creator] {selected_playlist.get_user_name()}")
+                print(f"\t\t[Creator] {selected_playlist.get_username()}")
                 print(f"\t\t[Songs] {len(selected_playlist.songs)}\n")
                 break
         except UrlError as e:
